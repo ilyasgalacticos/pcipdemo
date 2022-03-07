@@ -22,18 +22,4 @@ public class MainController {
         return soapClient.callWebService(request.getMessage());
     }
 
-    // Used just for testing db
-    @GetMapping(value = "/add/{message}")
-    public Mono<Message> add(@PathVariable(name = "message") String mess){
-        Message message = new Message();
-        message.setMessage(mess);
-        return messageService.addMessage(message);
-    }
-
-    // Used just for testing db
-    @GetMapping(value = "/get-all")
-    public Flux<Message> getMessages(){
-        return messageService.getAllMessages();
-    }
-
 }
